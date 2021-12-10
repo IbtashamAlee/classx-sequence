@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant User
+    participant ChatUI
+    participant ChatApi
+    participant Database
+    User->>ChatUI: message
+    ChatUI-->>User: messageSent:response
+    ChatUI-->>User: updateChatUI
+    ChatUI->>ChatApi: Validate User
+    ChatUI->>ChatApi: saveMessage
+    ChatApi-->>ChatUI: Message Sent Successful
+    ChatApi-->>ChatUI: socket will update message on both sides
+    ChatApi->>Database: new message saved
+    Database-->>ChatApi: user messages
+    ChatApi-->>ChatUI: Chats
