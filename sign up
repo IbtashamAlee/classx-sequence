@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant User
+    participant SignUp
+    participant AuthApi
+    participant Database
+    User->>SignUp: User credentials and information
+    SignUp-->>User: signupSuccessful:message
+    SignUp-->>User: displayDashboard
+    SignUp->>AuthApi: Validate User credentials
+    AuthApi-->>SignUp: User creation Successful
+    AuthApi-->>SignUp: return if user already exists
+    AuthApi-->>SignUp: status 200
+    AuthApi->>Database: username:saved <br> password:hashed
+    Database-->>AuthApi: user
+    AuthApi-->>SignUp: User & Token
+    SignUp-->>User: Dashboard
