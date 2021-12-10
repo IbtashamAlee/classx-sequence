@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Student
+    participant PollingPage
+    participant PollingAPI
+    participant Database
+    Student->>PollingPage: Attempt Assesment
+    PollingPage-->>Student: PollProgressSaved:response
+    PollingPage-->>Student: updatePollingPage
+    PollingPage->>PollingAPI: Validate Student
+    PollingPage->>PollingAPI: saveProgress
+    PollingAPI-->>PollingPage: Progress updated Successfully
+        PollingAPI-->>PollingPage: User is valid
+    PollingAPI->>Database: Poll progress updated
+    Database-->>PollingAPI: PollProgress
+    PollingAPI-->>PollingPage: Poll Details
