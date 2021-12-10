@@ -1,11 +1,11 @@
 sequenceDiagram
-    participant Student
+    participant Teacher
     participant PollingPage
     participant PollingAPI
     participant Database
-    Student->>PollingPage: create poll
-    PollingPage-->>Student: PollSaved:response
-    PollingPage-->>Student: updatePollingPage
+    Teacher->>PollingPage: create poll
+    PollingPage-->>Teacher: PollSaved:response
+    PollingPage-->>Teacher: updatePollingPage
     PollingPage->>PollingAPI: Validate Teacher
     PollingPage->>PollingAPI: savePoll
     PollingAPI-->>PollingPage: Polll created Successfully
