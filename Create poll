@@ -3,13 +3,13 @@ sequenceDiagram
     participant PollingPage
     participant PollingAPI
     participant Database
-    Student->>PollingPage: Attempt Assesment
-    PollingPage-->>Student: PollProgressSaved:response
+    Student->>PollingPage: create poll
+    PollingPage-->>Student: PollSaved:response
     PollingPage-->>Student: updatePollingPage
-    PollingPage->>PollingAPI: Validate Student
-    PollingPage->>PollingAPI: saveProgress
-    PollingAPI-->>PollingPage: Progress updated Successfully
-        PollingAPI-->>PollingPage: User is valid
-    PollingAPI->>Database: Poll progress updated
-    Database-->>PollingAPI: PollProgress
-    PollingAPI-->>PollingPage: Poll Details
+    PollingPage->>PollingAPI: Validate Teacher
+    PollingPage->>PollingAPI: savePoll
+    PollingAPI-->>PollingPage: Polll created Successfully
+    PollingAPI-->>PollingPage: User is valid
+    PollingAPI->>Database: Poll created
+    Database-->>PollingAPI: new Poll
+    PollingAPI-->>PollingPage: Poll
