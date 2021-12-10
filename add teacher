@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant Admin
+    participant ClassUI
+    participant ClassManagementApi
+    participant Database
+    Admin->>ClassUI: Add teacher
+    ClassUI-->>Admin: returnTeacerList:response Array
+    ClassUI-->>Admin: displayTeacherList
+    ClassUI->>ClassManagementApi: Validate user as Admin
+    ClassUI->>ClassManagementApi: add user as teacher
+    ClassManagementApi-->>ClassUI: Teacher added Successfully
+    ClassManagementApi->>Database: teachersaved
+    Database-->>ClassManagementApi: Class
+    ClassManagementApi-->>Admin: return class
