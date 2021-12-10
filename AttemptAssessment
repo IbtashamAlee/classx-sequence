@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Student
+    participant AssessmentPage
+    participant AssessmentResponses
+    participant AssessmentResponses
+    Student->>AssessmentPage: Attempt Assesment
+    AssessmentPage-->>Student: AssessmentProgressSaved:response
+    AssessmentPage-->>Student: updateAssessmentPage
+    AssessmentPage->>AssessmentResponses: Validate Student
+    AssessmentPage->>AssessmentResponses: saveProgress
+    AssessmentResponses-->>AssessmentPage: Progress updated Successfully
+        AssessmentResponses-->>AssessmentPage: User is valid
+    AssessmentResponses->>AssessmentLibrary: Assessment progress updated
+    AssessmentLibrary-->>AssessmentResponses: assessmentProgress
+    AssessmentResponses-->>AssessmentPage: Assessment Details
