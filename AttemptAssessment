@@ -9,6 +9,6 @@ sequenceDiagram
     AssessmentPage->>AssessmentAPI: saveProgress
     AssessmentAPI-->>AssessmentPage: Progress updated Successfully
         AssessmentAPI-->>AssessmentPage: User is valid
-    AssessmentAPI->>AssessmentLibrary: Assessment progress updated
-    AssessmentLibrary-->>AssessmentAPI: assessmentProgress
+    AssessmentAPI->>AssessmentResponses: Assessment progress updated
+    AssessmentResponses-->>AssessmentAPI: assessmentProgress
     AssessmentAPI-->>AssessmentPage: Assessment Details
