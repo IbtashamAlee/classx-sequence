@@ -1,0 +1,6 @@
+sequenceDiagram
+    participant User
+    participant LogoutPage
+    User->>LogoutPage: Logout
+    LogoutPage-->>User: Logout Successful
+    LogoutPage-->>User: Navigate to sign in
