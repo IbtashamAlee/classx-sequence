@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Teacher
+    participant AttendancePage
+    participant AttendanceAPI
+    participant Database
+    Teacher->>AttendancePage: New attendance
+    AttendancePage-->>Teacher: AttendanceCreated:response
+    AttendancePage-->>Teacher: updateAttendancePage
+    AttendancePage->>AttendanceAPI: Validate Teacher
+    AttendancePage->>AttendanceAPI: createNewAttendance
+    AttendanceAPI-->>AttendancePage: Attendance created
+    AttendanceAPI-->>AttendancePage: User is valid
+    AttendanceAPI->>Database: Attendance created
+    Database-->>AttendanceAPI: AttendanceCreated:successfully
+    AttendanceAPI-->>AttendancePage: AttendanceCreated:successfully
