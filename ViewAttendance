@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Teacher
+    participant AttendancePage
+    participant AttendanceApi
+    participant Database
+    Teacher->>AttendancePage: Get Attendance details
+    AttendancePage-->>Teacher: Attendance:response
+    AttendancePage-->>Teacher: updateAttendancePage
+    AttendancePage->>AttendanceApi: Validate Teacher
+    AttendanceApi-->>AttendancePage: Attendance retrived Successfully
+    AttendanceApi->>Database: Get attendance
+    Database-->>AttendanceApi: Attendance
+    AttendanceApi-->>AttendancePage: return Attendance:[ ]
