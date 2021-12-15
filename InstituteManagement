@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Admin
+    participant InstitutePage
+    participant InstituteApi
+    participant Database
+    Admin->>InstitutePage: Get Institute details
+    InstitutePage-->>Admin: Institute:response
+    InstitutePage-->>Admin: updateInstitutePage
+    InstitutePage->>InstituteApi: Validate Admin
+    InstituteApi-->>InstitutePage: Institute retrived Successfully
+    InstituteApi->>Database: Get user dasboard content
+    Database-->>InstituteApi: Institute/Institutes/Classess
+    InstituteApi-->>InstitutePage: return Institute:[ ]
