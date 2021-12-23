@@ -1,0 +1,133 @@
+classDiagram
+    User --|> Student
+    User --|> Teacher
+    User --|> Admin
+
+    Admin --* Institute
+    Institute --* Class
+    Class --* Poll 
+    Class --* Assessment
+    Class --* Attendance
+
+    Assessment --* Question
+    Assessment --* Attachment
+    Question --* Attachment
+
+    Assessment --* AssessmentResponse
+    AssessmentResponse --* AssessmentScore
+
+    Class --o ClassPost
+    User --* Message
+    Message --* Chat
+    class User {
+        id
+        name
+        status
+        image_url
+        user_role
+        user_type
+        user_permissions
+        getUser()
+        setUser(id, name, status, image_url...)
+    }
+    class Teacher {
+        getUser(token)
+        setUser(token)
+    }
+    class Admin {
+        getUser(token)
+        setUser(token)
+    }
+    class Student {
+        getUser(token)
+        setUser(token)
+    }
+    class Question {
+        id 
+        statement 
+        correct_options 
+        attachment_id
+        assessment_id
+        getQuestion(id)
+        setQuestion(id,statement...)
+    }
+    class Attachment {
+        id 
+        file 
+        assessment_id
+    }
+    class AssessmentScore {
+        id 
+        assessment_id
+        obtained_score
+        statement_id
+        setScore()
+        getScores()
+    }
+    class AssessmentResponse {
+        id 
+        attachment_id
+        question_id
+        assessment_id
+        response_body
+        student_id
+        setResponse(body)
+    }
+    class Poll {
+        id 
+        starting_time
+        statement
+        options 
+        votes
+        class_id
+        setVote()
+        createPoll()
+        getPoll()
+    }
+    class Assessment {
+        id 
+        starting_time
+        title
+        body
+        max_score
+        generateAssessment()
+        getAssessment(options)
+    }
+    class Attendance {
+        id 
+        class_id
+        created_by
+        starting_time
+        ending_time
+        generateAttendance()
+        setPresent()
+    }
+    class Class {
+        id 
+        name
+        description 
+        section
+        institute_id
+        createClass(body)
+        getClassess(token)
+    }
+    class ClassPost {
+        id 
+        starting_time
+        class_id
+        body
+        setPost(body, class_id)
+        getPosts(class_id)
+    }
+    class Institute {
+        id 
+        name
+        getInstitute(id, token)
+        setInsitite(body)
+    }
+    class Chat {
+        id 
+        status
+        participant_1
+        participant_2
+    }
