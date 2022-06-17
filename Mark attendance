@@ -4,8 +4,6 @@ sequenceDiagram
     participant AttendanceAPI
     participant Database
     Student->>AttendancePage: Mark attendance
-    AttendancePage-->>Student: AttendanceSaved:response
-    AttendancePage-->>Student: updateAttendancePage
     AttendancePage->>AttendanceAPI: Validate Student
     AttendancePage->>AttendanceAPI: saveAttendance
     AttendanceAPI-->>AttendancePage: Attendance updated
@@ -13,3 +11,5 @@ sequenceDiagram
     AttendanceAPI->>Database: Attendance updated
     Database-->>AttendanceAPI: Attendance:successfull
     AttendanceAPI-->>AttendancePage: Attendance:successfull
+    AttendancePage-->>Student: AttendanceSaved:response
+    AttendancePage-->>Student: updateAttendancePage

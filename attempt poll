@@ -4,8 +4,6 @@ sequenceDiagram
     participant PollingAPI
     participant Database
     Student->>PollingPage: attempt poll
-    PollingPage-->>Student: PollSaved:response
-    PollingPage-->>Student: updatePollingPage
     PollingPage->>PollingAPI: Validate Student
     PollingPage->>PollingAPI: savePoll
     PollingAPI-->>PollingPage: Polll progress updated
@@ -13,3 +11,5 @@ sequenceDiagram
     PollingAPI->>Database: Poll updated
     Database-->>PollingAPI: Poll progress
     PollingAPI-->>PollingPage: Poll progress
+    PollingPage-->>Student: PollSaved:response
+    PollingPage-->>Student: updatePollingPage

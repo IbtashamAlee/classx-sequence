@@ -4,8 +4,6 @@ sequenceDiagram
     participant PollingAPI
     participant Database
     Teacher->>PollingPage: create poll
-    PollingPage-->>Teacher: PollSaved:response
-    PollingPage-->>Teacher: updatePollingPage
     PollingPage->>PollingAPI: Validate Teacher
     PollingPage->>PollingAPI: savePoll
     PollingAPI-->>PollingPage: Polll created Successfully
@@ -13,3 +11,5 @@ sequenceDiagram
     PollingAPI->>Database: Poll created
     Database-->>PollingAPI: new Poll
     PollingAPI-->>PollingPage: Poll
+    PollingPage-->>Teacher: PollSaved:response
+    PollingPage-->>Teacher: updatePollingPage

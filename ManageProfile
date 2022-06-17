@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant User
+    participant ProfilePage
+    participant ProfileApi
+    participant Database
+    User->>ProfilePage: Get Profile/Update Profile
+    ProfilePage->>ProfileApi: Validate User
+    ProfilePage->>ProfileApi: Add details
+    ProfileApi-->>ProfilePage: User details saved
+    ProfileApi->>Database: detailsSaved
+    ProfilePage-->>User: profileUpdated:response
+    ProfileApi-->>ProfilePage: user
+    ProfilePage-->>User: displayuser
+    Database-->>ProfileApi: current user

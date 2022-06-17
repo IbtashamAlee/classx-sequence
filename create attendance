@@ -4,8 +4,6 @@ sequenceDiagram
     participant AttendanceAPI
     participant Database
     Teacher->>AttendancePage: New attendance
-    AttendancePage-->>Teacher: AttendanceCreated:response
-    AttendancePage-->>Teacher: updateAttendancePage
     AttendancePage->>AttendanceAPI: Validate Teacher
     AttendancePage->>AttendanceAPI: createNewAttendance
     AttendanceAPI-->>AttendancePage: Attendance created
@@ -13,3 +11,5 @@ sequenceDiagram
     AttendanceAPI->>Database: Attendance created
     Database-->>AttendanceAPI: AttendanceCreated:successfully
     AttendanceAPI-->>AttendancePage: AttendanceCreated:successfully
+    AttendancePage-->>Teacher: AttendanceCreated:response
+    AttendancePage-->>Teacher: updateAttendancePage

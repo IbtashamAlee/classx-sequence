@@ -4,11 +4,11 @@ sequenceDiagram
     participant InstituteApi
     participant Database
     Admin->>InstituteSettingsPage: Get Teachers list
-    InstituteSettingsPage-->>Admin: Teachers[]:response
-    InstituteSettingsPage-->>Admin: updateInstituteSettingsPage
     InstituteSettingsPage->>InstituteApi: Validate Admin
     InstituteSettingsPage->>InstituteApi: Add teacher
-    InstituteApi-->>InstituteSettingsPage: Teacher assigned Successfully
     InstituteApi->>Database: Assign Teacher
     Database-->>InstituteApi: true
-    InstituteApi-->>InstituteSettingsPage: return sucess:200
+    InstituteApi-->>InstituteSettingsPage: Teacher assigned Successfully
+    InstituteApi-->>InstituteSettingsPage: return suces    
+    InstituteSettingsPage-->>Admin: Teachers[]:response
+    InstituteSettingsPage-->>Admin: updateInstituteSettingsPage

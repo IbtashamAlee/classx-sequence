@@ -3,12 +3,12 @@ sequenceDiagram
     participant AssessmentPage
     participant AssessmentAPI
     Student->>AssessmentPage: Attempt Assesment
-    AssessmentPage-->>Student: AssessmentProgressSaved:response
-    AssessmentPage-->>Student: updateAssessmentPage
     AssessmentPage->>AssessmentAPI: Validate Student
     AssessmentPage->>AssessmentAPI: saveProgress
     AssessmentAPI-->>AssessmentPage: Progress updated Successfully
-        AssessmentAPI-->>AssessmentPage: User is valid
+    AssessmentAPI-->>AssessmentPage: User is valid
     AssessmentAPI->>AssessmentResponses: Assessment progress updated
     AssessmentResponses-->>AssessmentAPI: assessmentProgress
     AssessmentAPI-->>AssessmentPage: Assessment Details
+    AssessmentPage-->>Student: AssessmentProgressSaved:response
+    AssessmentPage-->>Student: updateAssessmentPage
