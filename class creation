@@ -4,11 +4,11 @@ sequenceDiagram
     participant ClassManagementApi
     participant Database
     Teacher/Admin->>ClassCreation: class details
-    ClassCreation-->>Teacher/Admin: classCreated:response
-    ClassCreation-->>Teacher/Admin: displayCreatedClass
     ClassCreation->>ClassManagementApi: Validate Teacher/Admin
     ClassCreation->>ClassManagementApi: Add class
     ClassManagementApi-->>ClassCreation: Class creation Successful
     ClassManagementApi->>Database: new class saved
-    Database-->>ClassManagementApi: current class
+    ClassCreation-->>Teacher/Admin: classCreated:response
     ClassManagementApi-->>ClassCreation: class
+    ClassCreation-->>Teacher/Admin: displayCreatedClass
+    Database-->>ClassManagementApi: current class
