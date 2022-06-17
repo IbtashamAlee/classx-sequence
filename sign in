@@ -4,12 +4,12 @@ sequenceDiagram
     participant AuthApi
     participant Database
     User->>SignIn: Username and password
-    SignIn-->>User: loginSuccessFul:message
-    SignIn-->>User: displayDashboard:(classes)
     SignIn->>AuthApi: Validate User credentials
-    AuthApi-->>SignIn: User Login Successful
-    AuthApi-->>SignIn: classList:(released)
     AuthApi->>Database: username:found <br> password:matched
+    AuthApi-->>SignIn: User Login Successful
     Database-->>AuthApi: user
     AuthApi-->>SignIn: User & Token
+    SignIn-->>User: loginSuccessFul:message
+    AuthApi-->>SignIn: classList:(released)
+    SignIn-->>User: displayDashboard:(classes)
     SignIn-->>User: Class Dashboard
