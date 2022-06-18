@@ -4,11 +4,10 @@ sequenceDiagram
     participant AssessmentApi
     participant AssessmentLibrary
     Teacher/Admin->>AssessmentPage: new assessment or select from recent
-    AssessmentPage-->>Teacher/Admin: AssessmentSaved:response
-    AssessmentPage-->>Teacher/Admin: updateAssessmentPage
     AssessmentPage->>AssessmentApi: Validate Teacher/Admin
     AssessmentPage->>AssessmentApi: saveDetails
-    AssessmentApi-->>AssessmentPage: Details updated Successfully
     AssessmentApi->>AssessmentLibrary: Assessment updated
     AssessmentLibrary-->>AssessmentApi: All Assessments
     AssessmentApi-->>AssessmentPage: return Assessments:[ ]
+    AssessmentPage-->>Teacher/Admin: AssessmentSaved:response
+    AssessmentPage-->>Teacher/Admin: updateAssessmentPage

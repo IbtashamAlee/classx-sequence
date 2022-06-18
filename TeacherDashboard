@@ -4,10 +4,9 @@ sequenceDiagram
     participant DashboardApi
     participant Database
     Teacher->>DashboardPage: Get dashboard
-    DashboardPage-->>Teacher: Dashboard:response
-    DashboardPage-->>Teacher: updateDashboardPage
     DashboardPage->>DashboardApi: Validate Teacher
-    DashboardApi-->>DashboardPage: Dashboard retrived Successfully
     DashboardApi->>Database: Get user dasboard content
     Database-->>DashboardApi: Dashboard/Institutes[:readOnly]/Classess
     DashboardApi-->>DashboardPage: return Dashboard:[ ]
+    DashboardPage-->>Teacher: Dashboard:response
+    DashboardPage-->>Teacher: updateDashboardPage

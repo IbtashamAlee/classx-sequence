@@ -4,10 +4,9 @@ sequenceDiagram
     participant DashboardApi
     participant Database
     Admin->>DashboardPage: Get dashboard
-    DashboardPage-->>Admin: Dashboard:response
-    DashboardPage-->>Admin: updateDashboardPage
     DashboardPage->>DashboardApi: Validate Admin
-    DashboardApi-->>DashboardPage: Dashboard retrived Successfully
     DashboardApi->>Database: Get user dasboard content
     Database-->>DashboardApi: Dashboard/Institutes/Classess
     DashboardApi-->>DashboardPage: return Dashboard:[ ]
+    DashboardPage-->>Admin: Dashboard:response
+    DashboardPage-->>Admin: updateDashboardPage

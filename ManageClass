@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant Teacher
+    participant ClassManagePage
+    participant ClassManageAPI
+    Teacher->>ClassManagePage:Update (Name, description, photo)
+    ClassManagePage->>ClassManageAPI: Validate Teacher
+    ClassManageAPI-->>ClassManagePage: Progress updated Successfully
+    ClassManageAPI->>AssessmentResponses: Class details
+    AssessmentResponses-->>ClassManageAPI: updated
+    ClassManageAPI-->>ClassManagePage: Class Details
+    ClassManagePage-->>Teacher: ClassDetailsSaved:response
+    ClassManagePage-->>Teacher: updateClassManagePage
